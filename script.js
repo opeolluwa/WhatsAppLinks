@@ -34,6 +34,9 @@ trigger.addEventListener('click', function() {
    dangerMode: true
   }).then(() => {
    link.innerHTML = '';
+   //notify error
+   Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255, 26, 26, .4)' });
+   Object.assign(document.getElementById('getText').style, { borderColor: 'rgba(255, 26, 26, .4)' });
    document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
   });
  }
@@ -45,6 +48,8 @@ trigger.addEventListener('click', function() {
    dangerMode: true
   }).then(() => {
    link.innerHTML = '';
+   Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255, 26, 26, .4)' });
+
    document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
   });
  }
@@ -57,6 +62,8 @@ trigger.addEventListener('click', function() {
    dangerMode: true
   }).then(() => {
    document.getElementById('output').innerHTML = '';
+   Object.assign(document.getElementById('getText').style, { borderColor: 'rgba(255, 26, 26, .4)' });
+
    document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
   });
  }
@@ -68,8 +75,9 @@ trigger.addEventListener('click', function() {
    Add up to 11 digits.`,
    icon: 'error',
    dangerMode: true
+  }).then(() => {
+   Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255, 26, 26, .4)' });
   });
-
  }
  else if (number.length > 11) {
   swal({
@@ -93,7 +101,7 @@ trigger.addEventListener('click', function() {
      button: 'Proceed'
     });
    });
-
+  Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255, 26, 26, .4)' });
  }
 
  else {
@@ -154,3 +162,39 @@ document.querySelectorAll('.container .output-controls button')[0].addEventListe
  link.innerHTML = '';
  document.querySelectorAll('.container .output-controls button')[2].innerHTML = 'Copy link';
 });
+//error handling
+//if error resulting from void feeds has occur and user is set to input values clear errors
+
+//case !number && !message
+(!document.getElementById('getText').value && !document.getElementById('getNumber').value) ? (function() {
+ //restore message
+ document.getElementById('getText').addEventListener('keyup', () => {
+  Object.assign(document.getElementById('getText').style, { borderColor: 'rgba(0,153,0,.4)' })
+ });
+ //restore number
+ document.getElementById('getNumber').addEventListener('keyup', () => {
+  Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(0,153,0,.4)' })
+ });
+})() :
+//case ! number
+(!document.getElementById('number').value) ?
+document.getElementById('getNumber').addEventListener('keyup', () => { //log error if the user input is out of range
+  if (document.getElementById('getNumber').length > 11) {
+   Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255,26,26,.4)' })
+  }
+  //else do otherwise
+  else {
+   Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(0,153,0,.4)' });
+  }
+ }):
+ //case! message
+ (!document.getElementById('getNumber').value) ?
+ document.getElementById('getText').addEventListener('keyup', () => {
+  Object.assign(document.getElementById('getText').style, { borderColor: 'rgba(0,153,0,.4)' })
+ }) : (function() {
+  //restore default : case message
+  Object.assign(document.getElementById('getText').style, { borderColor: 'rgba(255,255,255,.12)' });
+  //restore default : case message
+  Object.assign(document.getElementById('getNumber').style, { borderColor: 'rgba(255,255,255,.12)' });
+ })();
+ 
