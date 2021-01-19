@@ -156,7 +156,6 @@ trigger.addEventListener('click', function() {
 
 
 
-
     //COPY TEXT MODULE 
     const selection = window.getSelection();
     //save current selection
@@ -170,23 +169,32 @@ trigger.addEventListener('click', function() {
 
     //copy to clipboard
     try {
+      //check link is ready
       document.execCommand('copy');
-      trigger.innerHTML = 'Copied to clipboard';
-      swal({
-          title: 'Link copied to clipboard',
-          icon: 'success',
-          buttons: ['exit modal', 'reset feed'],
-          dangerMode: true
+      trigger.innerHTML = !document.querySelector('#output').innerHTML ? 'Generate & Copy link' : 'Copied to clipboard';
+      //copy link if ready
+      if (document.getElementById('output').innerHTML) {
+        swal({
+            title: 'Link copied to clipboard',
+            icon: 'success',
+            buttons: ['exit', 'ok'],
+            dangerMode: true
+          })
+          .then((resetFeed) => {
+            if (resetFeed) {
+              document.getElementById('getText').value = '';
+              document.getElementById('getNumber').value = '';
+              link.innerHTML = '';
+              document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
+            }
+          });
+      }
+      //tell user linl is till being made
+      else {
+        swal({
+          text: 'please wait...'
         })
-        .then((resetFeed) => {
-          if (resetFeed) {
-            document.getElementById('getText').value = '';
-            document.getElementById('getNumber').value = '';
-            link.innerHTML = '';
-            document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
-          }
-        });
-
+      }
     }
     //unable to copy 
     catch (err) {
@@ -198,16 +206,22 @@ trigger.addEventListener('click', function() {
   }
 
 });
+//COPY TEXT MODULE  end
+
+
+
+//ERROR HANDLING
 document.querySelectorAll('.container #output-controls button')[0].addEventListener('click', () => {
   //reset f8eilds
   document.getElementById('getText').value = '';
   document.getElementById('getNumber').value = '';
   link.innerHTML = '';
-  document.querySelectorAll('.container .output-controls button')[2].innerHTML = 'Copy link';
+  document.querySelectorAll('.container #output-controls button')[1].innerHTML = 'Copy link';
+  document.querySelector('em').innerHTML = '';
+
 });
 //error handling
 //if error resulting from void feeds has occur and user is set to input values clear errors
-
 //case !number && !message
 (!document.getElementById('getText').value && !document.getElementById('getNumber').value) ? (function() {
   //restore message
