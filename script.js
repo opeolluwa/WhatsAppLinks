@@ -1,18 +1,18 @@
 //update charLength
 document.getElementById('getText').addEventListener('keyup', () => {
  //def length
- let length = 1080 - document.getElementById('getText').value.length;
+ let length = 250 - document.getElementById('getText').value.length;
  let charLength =
   document.getElementById('charLength');
  charLength.innerHTML = `${length} characters more`;
 
- (length <= 500) ?
+ (length <= 200) ?
  Object.assign(charLength.style, { color: '#ee0000' }):
 
-  (length <= 750) ?
+  (length <= 150) ?
   Object.assign(charLength.style, { color: '#e69500' }) :
 
-  (length <= 990) ?
+  (length <= 50) ?
   Object.assign(charLength.style, { color: '#ffc14d' }) :
   Object.assign(charLength.style, { color: '#f5f5f5' });
 });
