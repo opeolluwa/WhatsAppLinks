@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <!--<link rel="stylesheet" href="assets/vendor/offline.js/offline-theme-dark.css" />
+    <link rel="stylesheet" href="assets/vendor/offline.js/  offline-language-english.css" />-->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-theme-slide.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-language-english.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -40,6 +44,12 @@
   <script src="assets/js/sweetalert.min.js"></script>
   <script src="assets/vendor/jQuery/jquery-3.5.1.js"></script>
   <script src="src/bitlr.js"></script>
+  <!-- <script src="assets/vendor/offline.js/offline.min.js"></script>
+  <script src="offline-simulate-ui.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/offline.min.js"></script>
+  <script>
+    Offline.options = { checks: { xhr: { url: 'https://d220lq6zcuj7hx.cloudfront.net/tiny-image.gif' } } };
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 
