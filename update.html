@@ -23,7 +23,7 @@
     <!--text feed-->
     <div id="feed">
       <!--input node-->
-      <input type="number" name="getNumber" id="getNumber" value="" placeholder="080 xxx xxxx xxx" />
+      <input type="number" name="getNumber" id="getNumber" value="" placeholder="080 xxx xxxx xxx" max="9999999999" />
       <input type="text" name="getText" id="getText" value="" placeholder="Input Message" maxlength="250" />
       <em id="charLength"></em>
       <!--output-->
@@ -31,11 +31,16 @@
     </div>
     <!--button-->
     <div id="output-controls">
-   <button type="button">Reset Inputs</button>
-   <button type="button">Generate & Copy link</button>
+      <button type="button">Reset Inputs</button>
+      <button type="button">Generate & Copy link</button>
+    </div>
   </div>
-
-  </div>
+  <!--scripts->
+  <!--depwndences jQuery, sweet alert, bitly module-->
+  <script src="assets/js/sweetalert.min.js"></script>
+  <script src="assets/vendor/jQuery/jquery-3.5.1.js"></script>
+  <script src="src/bitlr.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
