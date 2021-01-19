@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .cotainer>div {
+      height: 20vh;
+      width: 100%;
+    }
+
+    .cotainer {
+      height: 100%;
+    }
+
+    #divider {
+      background: red;
+      height: 40vh;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+    </div>
+    <div>
+    </div>
+    <!--divider-->
+    <div id="divider">
+      <div id="feed">
+        <!--input node-->
+        <input type="number" name="getNumber" id="getNumber" value="" placeholder="080 xxx xxxx xxx" max="9999999999" />
+        <input type="text" name="getText" id="getText" value="" placeholder="Input Message" maxlength="250" />
+        <em id="charLength"></em>
+        <!--output-->
+        <div name="" id=output readonly></div>
+      </div>
+      <!--button-->
+      <div id="output-controls">
+        <button type="button">Reset Inputs</button>
+        <button type="button" readonly>Generate & Copy link</button>
+      </div>
+      <!--diviser node end-->
+    </div>
+  </div>
+</body>
+
+</html>

@@ -19,13 +19,14 @@
       overflow: hidden;
       line-height: 0;
       transform: rotate(180deg);
+
     }
 
     .custom-shape-divider-bottom-1611095371 svg {
       position: relative;
       display: block;
       width: calc(100% + 1.3px);
-      height: 170px;
+      height: calc(17vh);
     }
 
     .custom-shape-divider-bottom-1611095371 .shape-fill {
@@ -33,7 +34,7 @@
     }
 
     /** For mobile devices **/
-    @media (max-width: 767px) {
+    @media (max-width: 576px) {
       .custom-shape-divider-bottom-1611095371 svg {
         width: calc(100% + 1.3px);
         height: 94px;
@@ -45,9 +46,16 @@
 <body>
   <div class="container">
     <!--icon header-->
-    <div id="icons" style="position: relative">
+    <div id="icons">
       <img name="theme-icon" src="assets/img/moon.svg" alt="night mode" />
       <p>old links</p>
+    </div>
+    <!-- hero text-->
+    <div id=hero style="position: relative">
+      <h1>Drrizle Links
+      </h1>
+      <div> Create WhatsApp links, embed messages and minify </div>
+      <!--shape divder-->
       <div class="custom-shape-divider-bottom-1611095371">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -56,25 +64,22 @@
         </svg>
       </div>
     </div>
-    <!-- hero text-->
-    <div id=hero style="position: relative">
-      <h1>Drrizle Links</h1>
-      <p> Create WhatsApp links, embed messages and minify </p>
-      <!--shape divder-->
-    </div>
-    <!--text feed-->
-    <div id="feed" style="position: relative">
-      <!--input node-->
-      <input type="number" name="getNumber" id="getNumber" value="" placeholder="080 xxx xxxx xxx" max="9999999999" />
-      <input type="text" name="getText" id="getText" value="" placeholder="Input Message" maxlength="250" />
-      <em id="charLength"></em>
-      <!--output-->
-      <div name="" id=output readonly></div>
-    </div>
-    <!--button-->
-    <div id="output-controls">
-      <button type="button">Reset Inputs</button>
-      <button type="button" readonly>Generate & Copy link</button>
+    <!--text feed==> divder-->
+    <div id="divider">
+      <div id="feed">
+        <!--input node-->
+        <input type="number" name="getNumber" id="getNumber" value="" placeholder="080 xxx xxxx xxx" max="9999999999" />
+        <input type="text" name="getText" id="getText" value="" placeholder="Input Message" maxlength="250" />
+        <em id="charLength"></em>
+        <!--output-->
+        <div name="" id=output readonly></div>
+      </div>
+      <!--button-->
+      <div id="output-controls">
+        <button type="button">Reset Inputs</button>
+        <button type="button" readonly>Generate & Copy link</button>
+      </div>
+      <!--diviser node end-->
     </div>
   </div>
   <!--scripts->
