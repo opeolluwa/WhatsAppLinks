@@ -9,196 +9,13 @@
   <link rel="stylesheet" href="assets/vendor/offline.js/  offline-language-english.css" />
   <!--  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-theme-slide.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/offline-js/0.7.19/themes/offline-language-english.min.css" />-->
-  <link rel="stylesheet" href="assets/css/styl.css" />
-  <style>
-    /* make icons at extreme ends*/
-    @font-face {
-      font-family: android;
-      src: url(android.ttf)
-    }
-
-
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 400;
-      /*color: rgba(255, 255, 255, .5);*/
-      font-family: android;
-
-    }
-
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    .container {
-      /*padding: 1rem;*/
-      /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;*/
-      height: 100vh;
-      background: #fff;
-
-    }
-
-    #header {
-      height: 40vh;
-    }
-
-    #icons {
-      background: #fff;
-    }
-
-    #icons,
-    #output-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 .25rem;
-      margin-top: 1.2rem;
-    }
-
-    #icons p {
-      font-size: 1.2rem;
-      font-weight: 300;
-      font-family: Arial, Helvetica, sans-serif;
-      text-transform: capitalize;
-    }
-
-    /*style the app title and subtitle */
-    #hero {
-      text-align: center;
-      position: relative !important;
-    }
-
-    #hero h1 {
-      font-weight: 300;
-      font-family: android;
-
-    }
-
-    #hero div {
-      color: rgba(255, 255, 255, .5);
-      color: #000;
-    }
-
-    #hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-    }
-
-    #feed {
-      position: relative !important;
-
-    }
-
-    #feed input,
-    #feed div {
-      width: 100%;
-      height: 2.5rem;
-      border-radius: 7px;
-      border: rgba(255, 255, 255, .5) solid .1px;
-      text-align: center;
-      outline: none;
-      background: transparent;
-      color: rgba(255, 255, 255, .5);
-
-    }
-
-    #feed div {
-      border-top: none;
-      background: transparent;
-
-    }
-
-    #feed input:first-child {
-      border-bottom: none;
-    }
-
-    #divider {
-      background: #201028 !important;
-      height: 60vh;
-      display: flex;
-      justify-content: space-between;
-      align-content: center;
-      flex-direction: column;
-
-    }
-
-    #output-controls {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      background: #f2f2f2;
-      width: 100%;
-      height: 10vh;
-    }
-
-    #output-controls button {
-      border-radius: 7px;
-      padding: .75rem;
-      outline: none;
-      border: .1px solid rgba(255, 255, 255, .15);
-      color: rgba(255, 255, 255, .75);
-            color: #603098;
-
-      background: inherit
-    }
-
-    #charLength {
-      font-size: 75%;
-      font-style: italic;
-    }
-
-
-
-
-    .custom-shape-divider-bottom-1611095371 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg);
-
-    }
-
-    .custom-shape-divider-bottom-1611095371 svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: calc(17vh);
-    }
-
-    .custom-shape-divider-bottom-1611095371 .shape-fill {
-      fill: #201028;
-    }
-
-    /** For mobile devices **/
-    @media (max-width: 576px) {
-      .custom-shape-divider-bottom-1611095371 svg {
-        width: calc(100% + 1.3px);
-        height: 94px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
   <div class="container">
     <!--header-->
     <div id="header" style="position: relative">
-      <!--icon header-->
-      <div id="icons">
-        <img name="theme-icon" src="assets/img/moon.svg" alt="night mode" />
-        <img name="theme-icon" src="assets/img/clipboard-list.svg" alt="night mode" />
-      </div>
       <!-- hero text-->
       <div id=hero style="position: relative">
         <h1>Drrizle Links
@@ -226,8 +43,8 @@
       </div>
       <!--button-->
       <div id="output-controls">
-        <button type="button">Reset Inputs</button>
-        <button type="button" readonly>Generate & Copy link</button>
+        <img name="theme-icon" src="assets/img/redo-alt.svg" alt="night mode" />
+         <img name="theme-icon" src="assets/img/arrow-right.svg" alt="night mode" />
       </div>
       <!--diviser node end-->
     </div>

@@ -1,132 +1,173 @@
-/* make icons at extreme ends*/
-@font-face {
-  font-family: android;
-  src: url(android.ttf)
-}
+  /* make icons at extreme ends*/
+  @font-face {
+    font-family: android;
+    src: url(android.ttf)
+  }
 
 
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  /*color: rgba(255, 255, 255, .5);*/
-  font-family: android;
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    /*color: rgba(255, 255, 255, .5);*/
+    font-family: android;
 
-}
+  }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-.container {
-  /*padding: 1rem;*/
-  /* display: flex;
+  .container {
+    /*padding: 1rem;*/
+    /* display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;*/
-  height: 100vh;
-  background: #fff;
+    height: 100vh;
+    background: #fff;
 
-}
+  }
 
-#header{
-  height: 40vh;
-}
-#icons {
-  background: #fff;
-}
+  #header {
+    height: 40vh;
 
-#icons,
-#output-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 .25rem;
-  margin-top: 1.2rem;
-}
+  }
 
-#icons p {
-  font-size: 1.2rem;
-  font-weight: 300;
-  font-family: Arial, Helvetica, sans-serif;
-  text-transform: capitalize;
-}
 
-/*style the app title and subtitle */
-#hero {
-  text-align: center;
-  position: relative !important;
-}
 
-#hero h1 {
-  font-weight: 300;
-  font-family: android;
+  
+  #output-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .25rem;
+  }
 
-}
 
-#hero div {
-  color: rgba(255, 255, 255, .5);
-  color: #000;
-}
 
-#hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /*style the app title and subtitle */
+  #hero {
+    text-align: center;
+    position: relative !important;
+    padding: .75rem;
+    margin: .75rem;
+  }
 
-}
+  #hero h1 {
+    font-weight: 300;
+    font-family: android;
 
-#feed {
-  position: relative !important;
+  }
 
-}
+  #hero div {
+    color: rgba(255, 255, 255, .5);
+    color: #000;
+    padding: .5rem;
+  }
 
-#feed input,
-#feed div {
-  width: 100%;
-  height: 2.5rem;
-  border-radius: 7px;
-  border: rgba(255, 255, 255, .5) solid .1px;
-  text-align: center;
-  outline: none;
-  background: transparent;
-  color: rgba(255, 255, 255, .5);
+  #hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-}
+  }
 
-#feed div {
-  border-top: none;
-  background: transparent;
+  #feed {
+    position: relative !important;
 
-}
+  }
 
-#feed input:first-child {
-  border-bottom: none;
-}
+  #feed input,
+  #feed div {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 7px;
+    border: rgba(255, 255, 255, .5) solid .1px;
+    text-align: center;
+    outline: none;
+    background: transparent;
+    color: rgba(255, 255, 255, .5);
 
-#divider {
-  background: #201028 !important;
-  height: 60vh;
-  display: flex;
-  justify-content: space-between;
-  align-content:center;
-  flex-direction:column;
-  padding-top: 10vh;
-  position: relative;
-}
+  }
 
-#output-controls button {
-  border-radius: 7px;
-  padding: .75rem;
-  outline: none;
-  border: .1px solid rgba(255, 255, 255, .15);
-  color: rgba(255, 255, 255, .75);
-  background: inherit
-}
+  #feed div {
+    border-top: none;
+    background: transparent;
 
-#charLength {
-  font-size: 75%;
-  font-style: italic;
-}
+  }
+
+  #feed input:first-child {
+    border-bottom: none;
+  }
+
+  #divider {
+    background: #201028 !important;
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+
+  }
+
+  #output-controls {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #f2f2f2;
+    width: 100%;
+    height: 7.5vh;
+    padding: 0 .75rem;
+  }
+
+  #output-controls button {
+    border-radius: 7px;
+    padding: .75rem;
+    outline: none;
+    border: .1px solid rgba(255, 255, 255, .15);
+    color: rgba(255, 255, 255, .75);
+    color: #603098;
+
+    background: inherit
+  }
+
+  #charLength {
+    font-size: 75%;
+    font-style: italic;
+  }
+
+
+
+
+  .custom-shape-divider-bottom-1611095371 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+
+  }
+
+  .custom-shape-divider-bottom-1611095371 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: calc(17vh);
+  }
+
+  .custom-shape-divider-bottom-1611095371 .shape-fill {
+    fill: #201028;
+  }
+
+  /** For mobile devices **/
+  @media (max-width: 576px) {
+    .custom-shape-divider-bottom-1611095371 svg {
+      width: calc(100% + 1.3px);
+      height: 94px;
+    }
+  }

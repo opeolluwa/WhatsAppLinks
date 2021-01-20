@@ -27,7 +27,7 @@ document.getElementById('getText').addEventListener('keyup', () => {
 //ref variables 
 let link = document.getElementById('output');
 //define variables
-let trigger = document.querySelectorAll('.container #output-controls button')[1];
+let trigger = document.querySelectorAll(' #output-controls img')[1];
 
 
 //add event listener to trigger 
@@ -211,7 +211,7 @@ trigger.addEventListener('click', function() {
 
 
 //ERROR HANDLING
-document.querySelectorAll('.container #output-controls button')[0].addEventListener('click', () => {
+document.querySelectorAll('#output-controls img')[0].addEventListener('click', () => {
   //reset f8eilds
   document.getElementById('getText').value = '';
   document.getElementById('getNumber').value = '';
