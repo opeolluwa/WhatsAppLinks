@@ -216,7 +216,6 @@ document.querySelectorAll('#output-controls img')[0].addEventListener('click', (
   document.getElementById('getText').value = '';
   document.getElementById('getNumber').value = '';
   link.innerHTML = '';
-  document.querySelectorAll('.container #output-controls button')[1].innerHTML = 'Copy link';
   document.querySelector('em').innerHTML = '';
 
 });
