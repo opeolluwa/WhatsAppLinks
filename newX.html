@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content min-content 1fr;
+    }
+
+    #divider {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+
+    }
+
+    #divider>div {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      scroll-behavior: smooth;
+      height: 100vh !important;
+      background: inherit;
+    }
+    #whatsapp-layer input{
+      width: 100%;
+    height: 2.5rem;
+    border: none;
+    padding: 0 5%;
+    border-bottom: #000 solid .1px;
+    text-align: center;
+    outline: none;
+    background: transparent;
+    color: #000;
+
+    }
+  
+  </style>
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon.min.css" rel="stylesheet" />
+</head>
+
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-theme-onload="true">
+  <!-- Modals go here -->
+  <!-- Reference: https://www.gethalfmoon.com/docs/modal -->
+  <!-- Page wrapper start -->
+  <div class="page-wrapper with-navbar with-sidebar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
+    <!-- Navbar start -->
+    <nav class="navbar" style="display: flex; justify-content: space-evenly; align-items:center">
+      <!-- Reference: https://www
+      .gethalfmoon.com/docs/navbar -->
+      <img src="assets/img/whatsapp.svg">
+      <img src="assets/img/qrcode.svg">
+      <img src="assets/img/website.svg">
+    </nav>
+    <!-- Navbar end -->
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+    <!-- Sidebar start -->
+    <div class="sidebar">
+      <!-- Reference: https://www.gethalfmoon.com/docs/sidebar -->
+    </div>
+    <!-- Sidebar end -->
+    <!-- Content wrapper start -->
+    <div class="content-wrapper" id="divider">
+      <!--
+          Add your page's main content here
+          Examples:
+          1. https://www.gethalfmoon.com/docs/content-and-cards/#building-a-page
+          2. https://www.gethalfmoon.com/docs/grid-system/#building-a-dashboard
+        -->
+      <div id="qrcode">qrcode</div>
+      <div id="web">web
+      </div>
+      <div id="whatsapp-layer">
+        whatsapp
+        <!--input node-->
+      </div>
+    
+      <div class="w-full h-full d-flex align-items-center justify-content-center">
+      </div>
+    </div>
+    <!-- Content wrapper end -->
+    <!-- Navbar fixed bottom start -->
+    <nav class="navbar navbar-fixed-bottom">
+      <div id="output-controls">
+        <img src="assets/img/redo-alt.svg" alt="" />
+        <img src="assets/img/list.svg" alt="" />
+        <img src="assets/img/copy.svg" alt="" />
+        <img src="assets/img/arrow-right.svg" alt="" />
+      </div>
+      <!-- Reference: https://www.gethalfmoon.com/docs/navbar#navbar-fixed-bottom -->
+    </nav>
+    <!-- Navbar fixed bottom end -->
+  </div>
+  <!-- Page wrapper end -->
+  <!-- Halfmoon JS -->
+  <script src="js/halfmoon.min.js"></script>
+  <script src="assets/js/mainX.js"></script>
+</body>
+
+</html>
