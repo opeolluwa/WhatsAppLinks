@@ -33,8 +33,8 @@
       color: #fff;
       text-align: center;
       padding: 1rem;
-background: #fff;
-          color: #000;
+      background: #fff;
+      color: #000;
 
     }
 
@@ -45,18 +45,45 @@ background: #fff;
       height: 100vh !important;
       background: inherit;
     }
-    #whatsapp-layer input{
+
+    #whatsapp-layers input {
       width: 100%;
-    height: 2.5rem;
-    border: none;
-    padding: 0 5%;
-    border-bottom: #000 solid .1px;
-    text-align: center;
-    outline: none;
-    background: transparent;
+      height: 2.5rem;
+      border: none;
+      padding: 0 5%;
+      border-bottom: #000 solid .1px;
+      text-align: center;
+      outline: none;
+      background: transparent;
 
     }
-  
+
+    .nav-start {
+      padding: 2rem;
+    }
+
+    .nav-start img {
+      width: 25px;
+      display: none;
+    }
+
+    .nav-start ul li a {
+      width: 30vw !important;
+      color: #fff;
+    }
+
+    .nav-start ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      align-content: center;
+    }
+
+    .nav-start.active-layers {
+      border-bottom: 1px solid #fff;
+      transform: scale(.9);
+    }
   </style>
   <!-- Halfmoon CSS -->
   <link href="css/halfmoon.min.css" rel="stylesheet" />
@@ -68,12 +95,17 @@ background: #fff;
   <!-- Page wrapper start -->
   <div class="page-wrapper with-navbar with-sidebar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
     <!-- Navbar start -->
-    <nav class="navbar" style="display: flex; justify-content: space-evenly; align-items:center">
+    <nav class="nav-start">
+      <ul id="menu">
+        <li><a href="#weblink"> <img src="assets/img/weblink.svg">
+            WebLinks</a></li>
+        <li><a href="#qrcode"> <img src="assets/img/qrcode.svg">
+            QR Code</a></li>
+        <li><a href="#weblink"> <img src="assets/img/whatsapp.svg">
+            WhatsApp</a></li>
+      </ul>
       <!-- Reference: https://www
       .gethalfmoon.com/docs/navbar -->
-      <img src="assets/img/whatsapp.svg">
-      <img src="assets/img/qrcode.svg">
-      <img src="assets/img/website.svg">
     </nav>
     <!-- Navbar end -->
     <!-- Sidebar overlay -->
@@ -91,16 +123,15 @@ background: #fff;
           1. https://www.gethalfmoon.com/docs/content-and-cards/#building-a-page
           2. https://www.gethalfmoon.com/docs/grid-system/#building-a-dashboard
         -->
-              <div id="web">web</div>
-
-      <div id="qrcode">qrcode</div>
-    
-      <div id="whatsapp-layer">
-        whatsapp
-        <!--input node-->
+      <div id="weblink-layers">web
+        <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
-    
-      <div class="w-full h-full d-flex align-items-center justify-content-center">
+      <div id="qrcode-layers">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
+      </div>
+      <div id="whatsapp-layers">whatsapp <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
     </div>
     <!-- Content wrapper end -->
@@ -120,6 +151,54 @@ background: #fff;
   <!-- Halfmoon JS -->
   <script src="js/halfmoon.min.js"></script>
   <script src="assets/js/mainX.js"></script>
+  <script>
+    // First we select target elements
+    const weblink = tree.variables.layers.weblink;
+    const qrcode = tree.variables.layers.qrcode;
+    const whatsapp = tree.variables.layers.whatsapp;
+
+    //refrence their observers 
+    const whatsappObserver = tree.variables.layersObserver.whatsapp;
+    const weblinkObserver = tree.variables.layersObserver.weblink;
+    const qrcodeObserver = tree.variables.layersObserver.qrcode;
+
+    //API options 
+    let options = {
+      threshold: 1.0,
+      rootMargin: '0px',
+    };
+
+    // Next we want to create a function that will be called when that element is intersected
+    function weblinkCallback(entries) {
+      //unobserve the two unconcerned application layers
+      //weblinkObserver.unobserve(weblink);
+      // qrcodeObserver.unobserve(qrcode);
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+          entry.weblinkObserver.classList.add('active-layers')
+          //other weblink control logic
+        } else {
+          entry.target.classList.remove('active-layers')
+        }
+      });
+    }
+
+
+    // Next we instantiate the observer with the function we created above. This takes an optional configuration
+    // object that we will use in the other examples.
+    const observer = new IntersectionObserver(weblinkCallback, options);
+
+  
+
+    //observe each
+    /*targetElements.map((layer) =>
+      observer.observe(layer))*/
+
+    //for(let item of targetElements){
+    observer.observe(weblink, options)
+
+    //}
+  </script>
 </body>
 
 </html>

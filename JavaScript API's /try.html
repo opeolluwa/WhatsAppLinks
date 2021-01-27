@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css" media="all">
+    .target {
+      margin: 3rem;
+      border: none;
+      transition: all 2s cubic-bezier(0.23, 1, 0.320, 1);
+      display: block;
+    }
+
+    .target.ks {
+      transform: scale(1.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects with the root. <a>what ever</a>
+    Be aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+    Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects with the root.
+    Be aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+    Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects with the root.
+    <strong id="tt">anchortt</strong>
+    Be aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+    Also, note that if you specified the root option, the target must be a descendant of the root element
+    <a class="target">anchor</a>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    // First we select the element we want to target
+    const target = document.querySelector('.target');
+    let tt = document.querySelector('#tt');
+
+    // Next we want to create a function that will be called when that element is intersected
+    function callback(entries) {
+      // The callback will return an array of entries, even if you are only observing a single item
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+                tt.innerText = 'foolz';
+
+          entry.target.classList.add('ks')
+        } else {
+          entry.target.classList.remove('ks')
+        }
+      });
+    }
+
+    //API options 
+    let container = document.getElementById('container');
+
+
+    let options = {
+      threshold: 1.0,
+      rootMargin: '0px',
+    };
+
+    // Next we instantiate the observer with the function we created above. This takes an optional configuration
+    // object that we will use in the other examples.
+    const observer = new IntersectionObserver(callback, options);
+
+    // Finally start observing the target element
+    observer.observe(target);
+  </script>
+</body>
+
+</html>

@@ -2,33 +2,46 @@
 let tree = {
 
   //get variables by name
-  getVariable(selector) {
+  getVariable: function(selector) {
     return document.querySelector(selector);
   },
 
   //hold private variables
   variables: {
+
     //application layers
-    layers: document.getElementsByClassName('layer'),
+    layers: {
+      whatsapp: getVariable('#whatsapp-layer'),
+      qrcode: getVariable('#qrcode-layer'),
+      weblink: getVariable('#weblink-layer')
+    },
+
+    //navigation || application layer observer
+    layersObserver: {
+      weblink: document.querySelectorAll('#menu ul li a')[0],
+      qrcode: document.querySelectorAll('#menu ul li a')[1],
+
+      whatsapp: document.querySelectorAll('#menu ul li a')[2]
+
+    },
     //output node
     output: document.getElementById('output'),
     //control buttons
     controls: document.querySelectorAll('#output img'),
-    //navigation options => web => whatsapp => Qr code
-    menuOptions: document.querySelectorAll('#menu img'),
+
     //tutorials 
-    completeTutorial : true,
+    completeTutorial: true,
   },
 
   //display selected node
   hideNode(selector) {
-    Object.assign(document.querySelector(selector).style, { display: 'none' })
+    Object.assign(document.querySelector(selector).style, { display: 'none' });
   },
 
   //hide selectednodes
-  displayNode(selector) {
-    Object.assign(document.querySelector(selector).style, { display: 'block' })
 
+  displayNode(selector) {
+    Object.assign(document.querySelector(selector).style, { display: 'block' });
   },
 
   //tutorial control
@@ -81,9 +94,7 @@ let tree = {
   init() {
     //get all nodes and set display to none
     //show loader-
-    tree.displayNode('#init');
-    window.setTimeout(tree.hideNode, 1500, '#init');
-    window.setTimeout(tree.displayNode, 1500, '#header');
+
   },
 
 
@@ -175,67 +186,3 @@ let tree = {
 
 
 //MAIN CONTROL 
-tree.init();
-//toggler
-let toggler =
-  tree.getVariable('#toggler');
-
-toggler.addEventListener('click', () => {
-  document.querySelector('#menu').style.display == "flex" ? document.querySelector('#menu').style.display = "none" : document.querySelector('#menu').style.display = "flex";
-});
-
-
-//option variables
-let whatsapp = tree.variables.menuOptions[2];
-let qrCode = tree.variables.menuOptions[1];
-let web = tree.variables.menuOptions[0];
-
-
-//whatsapp layers options
-whatsapp.onclick = () => {
-  //animate the active option
-  whatsapp.classList.add('active-layer');
-  tree.getVariable('#whatsapp-layer').classList.add('slit-in-horizontal');
-
-  //hide other open nodes options & the nodes
-  tree.displayNode('#whatsapp-layer');
-  web.style.display = 'none';
-  qrCode.style.display = 'none';
-  tree.hideNode('#qrcode-layer');
-  tree.hideNode('#web-layer');
-
-  //perform other actions
-
-}
-
-//qrcode layer options
-qrCode.onclick = function() {
-  //animate the active option
-  qrCode.classList.add('active-layer');
-  tree.getVariable('#qrcode-layer').classList.add('slit-in-horizontal');
-
-  //hide other open nodes options & the nodes
-  whatsapp.style.display = 'none';
-  web.style.display = 'none';
-  tree.displayNode('#qrcode-layer')
-  tree.hideNode('#web-layer')
-  tree.hide('#whatsapp-layer')
-  //perform other actions
-
-}
-
-//web layer options
-web.onclick = function() {
-  //animate the active option
-  web.classList.add('active-layer');
-  tree.getVariable('#web-layer').classList.add('slit-in-horizontal');
-
-  //hide other open nodes options & the nodes
-  whatsapp.style.display = 'none';
-  qrCode.style.display = 'none';
-  tree.displayNode('#web-layer');
-  tree.hideNode('#whatsapp-layer');
-  tree.hideNode('#qrcode-layer');
-  //perform other actions
-
-}
