@@ -179,89 +179,59 @@ let tree = {
 //MAIN CONTROL 
 
 // First we select target elements
-/*let weblink = tree.variables.layers.weblink;
+let weblink = tree.variables.layers.weblink;
 let qrcode = tree.variables.layers.qrcode;
 let whatsapp = tree.variables.layers.whatsapp;
 
 //refrence their observers 
 let whatsappObserver = tree.variables.layersObserver.whatsapp;
-//let weblinkObserver = tree.variables.layersObserver.weblink;
+let weblinkObserver = tree.variables.layersObserver.weblink;
 let qrcodeObserver = tree.variables.layersObserver.qrcode;
-*/
 
 
-/*
-//ref the concerned element
-let layer = document.querySelector('.layer');
-let link = document.querySelector('.link');
-
-
-
-
-//API options 
-let options = {
-  threshold: 1.0,
-  rootMargin: '0px',
-};
-
-//var we = document.querySelector('#weblink');
-
-
-//let target = document.querySelector('.target');
-
-// Next we want to create a function that will be called when that element is intersected
-function qrcodeCallback(entries) {
-  //unobserve the two unconcerned application layers
-  //weblinkObserver.unobserve(weblink);
-  // qrcodeObserver.unobserve(qrcode);
+//weblink.call back
+function callback(entries) {
+  // The callback will return an array of entries, even if you are only observing a single item
   entries.map((entry) => {
     if (entry.isIntersecting) {
-     entry.link.classList.add('active')
-      //other weblink control logic
-    } else {
-      entry.link.classList.remove('active')
+      weblinkObserver.style.borderBottom = '.1rem solid #fff';
+    }
+    else {
+      weblinkObserver.style.borderBottom = 'none';
     }
   });
 }
 
+//whatsapp callback
+function whatsappCallback(entries) {
+  // The callback will return an array of entries, even if you are only observing a single item
+  entries.map((entry) => {
+    if (entry.isIntersecting) {
+      whatsappObserver.style.borderBottom = '.1rem solid #fff';
+    }
+    else {
+      whatsappObserver.style.borderBottom = 'none';
+    }
+  });
+}
 
-// Next we instantiate the observer with the function we created above. This takes an optional configuration
-// object that we will use in the other examples.
-let observer = new IntersectionObserver(qrcodeCallback);
-
-
-
-//observe each
-observer.observe(layer)*/
-
-
-
-// First we select the element we want to target
-const qrcode = document.querySelector('#qrcode-layer');
-let qrcodeObserver = document.querySelector('a[href*="qrcode"]');
-
-// Next we want to create a function that will be called when that element is intersected
+//qrcode observer 
 function qrcodeCallback(entries) {
   // The callback will return an array of entries, even if you are only observing a single item
   entries.map((entry) => {
     if (entry.isIntersecting) {
-      alert('fool');
-  qrcodeObserver.classList.add('active')
-    qrcodeCallback.innerText = 'working! Fool';
-
-    } else {
-      qrcodeObserver.classList.remove('active')
-      qrcodeObserver.innerText = 'QR Code';
-
+      qrcodeObserver.style.borderBottom = '.1rem solid #fff';
+    }
+    else {
+      qrcodeObserver.style.borderBottom = 'none';
     }
   });
 }
 
-
-
-// Next we instantiate the observer with the function we created above. This takes an optional configuration
-// object that we will use in the other examples.
-const observer = new IntersectionObserver(qrcodeCallback);
+// Next we instantiate the observer
+const observeWhatsapp = new IntersectionObserver(whatsappCallback);
 
 // Finally start observing the target element
-observer.observe(qrcode);
+observeWhatsapp.observe(whatsapp);
+//observer.observe(qrcode);
+//observer.observe(whatsapp);

@@ -28,6 +28,7 @@
       grid-template-rows: 1fr;
       grid-auto-flow: column;
       grid-auto-columns: 100%;
+      column-gap: .25rem;
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       color: #fff;
@@ -42,7 +43,6 @@
       scroll-snap-align: start;
       scroll-snap-stop: always;
       scroll-behavior: smooth;
-      height: 100vh !important;
       background: inherit;
     }
 
@@ -55,7 +55,6 @@
       text-align: center;
       outline: none;
       background: transparent;
-
     }
 
     .nav-start {
@@ -80,13 +79,13 @@
       align-content: center;
     }
 
-    .link.active {
+    a[href*="qrcode"].active {
       border-bottom: 1px solid red;
       transform: scale(.9);
     }
   </style>
   <!-- Halfmoon CSS -->
-  <link href="css/halfmoon.min.css" rel="stylesheet" />
+  <link href="assets/css/halfmoon.min.css" rel="stylesheet" />
 </head>
 
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-theme-onload="true">
@@ -126,7 +125,7 @@
         <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
-      <div id="qrcode-layer">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+      <div id="qrcode-layer" class="layer">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
       <div id="whatsapp-layer">whatsapp <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
@@ -148,8 +147,8 @@
   </div>
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
-  <script src="js/halfmoon.min.js"></script>
-  <!--<script src="assets/js/app.js"></script>-->
+  <script src="assets/js/halfmoon.min.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
