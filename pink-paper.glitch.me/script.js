@@ -1,7 +1,7 @@
-
+document.createElement('layer');
 /* 
     Short cuts for document querySelector and querySelectorAll
-    which can handle being used as template tags $`main` or $$`layer`
+    which can handle being used as template tags $`main` or $$`div`
     
     Also if the first character is < then create a fragment instead
 */
@@ -42,13 +42,13 @@ const iO = new IntersectionObserver(entries => entries.forEach(entry => {
         navEl.classList.remove('focus');
     }
 }), {
-    root: $`#root`,
+    root: $`main`,
     threshold: 0.5
 });
 
 window.addEventListener('DOMContentLoaded', () => $$`layer`.map(a => iO.observe(a)));
 window.addEventListener('hashchange', function (e) {
-  const layerToShow =  $(window.location.hash || '#' + $`layer`.id);
-  layerToShow.scrollIntoView();
+  const articleToShow =  $(window.location.hash || '#' + $`layer`.id);
+  articleToShow.scrollIntoView();
   e.preventDefault();
 }, false);
