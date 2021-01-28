@@ -80,8 +80,8 @@
       align-content: center;
     }
 
-    .nav-start.active-layers {
-      border-bottom: 1px solid #fff;
+    .link.active {
+      border-bottom: 1px solid red;
       transform: scale(.9);
     }
   </style>
@@ -97,11 +97,10 @@
     <!-- Navbar start -->
     <nav class="nav-start">
       <ul id="menu">
-        <li><a href="#weblink"> <img src="assets/img/weblink.svg">
+        <li><a href="#weblink-layer" id="weblink">
             WebLinks</a></li>
-        <li><a href="#qrcode"> <img src="assets/img/qrcode.svg">
-            QR Code</a></li>
-        <li><a href="#weblink"> <img src="assets/img/whatsapp.svg">
+        <li><a href="#qrcode-layer" class="link"> QR Code</a></li>
+        <li><a href="#whatsapp-layer">
             WhatsApp</a></li>
       </ul>
       <!-- Reference: https://www
@@ -123,14 +122,14 @@
           1. https://www.gethalfmoon.com/docs/content-and-cards/#building-a-page
           2. https://www.gethalfmoon.com/docs/grid-system/#building-a-dashboard
         -->
-      <div id="weblink-layers">web
+      <div id="weblink-layer">web
         <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
-      <div id="qrcode-layers">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+      <div id="qrcode-layer">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
-      <div id="whatsapp-layers">whatsapp <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+      <div id="whatsapp-layer">whatsapp <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </div>
     </div>
@@ -150,55 +149,7 @@
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
   <script src="js/halfmoon.min.js"></script>
-  <script src="assets/js/mainX.js"></script>
-  <script>
-    // First we select target elements
-    const weblink = tree.variables.layers.weblink;
-    const qrcode = tree.variables.layers.qrcode;
-    const whatsapp = tree.variables.layers.whatsapp;
-
-    //refrence their observers 
-    const whatsappObserver = tree.variables.layersObserver.whatsapp;
-    const weblinkObserver = tree.variables.layersObserver.weblink;
-    const qrcodeObserver = tree.variables.layersObserver.qrcode;
-
-    //API options 
-    let options = {
-      threshold: 1.0,
-      rootMargin: '0px',
-    };
-
-    // Next we want to create a function that will be called when that element is intersected
-    function weblinkCallback(entries) {
-      //unobserve the two unconcerned application layers
-      //weblinkObserver.unobserve(weblink);
-      // qrcodeObserver.unobserve(qrcode);
-      entries.map((entry) => {
-        if (entry.isIntersecting) {
-          entry.weblinkObserver.classList.add('active-layers')
-          //other weblink control logic
-        } else {
-          entry.target.classList.remove('active-layers')
-        }
-      });
-    }
-
-
-    // Next we instantiate the observer with the function we created above. This takes an optional configuration
-    // object that we will use in the other examples.
-    const observer = new IntersectionObserver(weblinkCallback, options);
-
-  
-
-    //observe each
-    /*targetElements.map((layer) =>
-      observer.observe(layer))*/
-
-    //for(let item of targetElements){
-    observer.observe(weblink, options)
-
-    //}
-  </script>
+  <!--<script src="assets/js/app.js"></script>-->
 </body>
 
 </html>

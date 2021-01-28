@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css" media="all">
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Helvetica, Arial, Sans Serif;
+    }
+
+    p {
+      line-height: 20px;
+      color: #333;
+    }
+
+    .container {
+      height: 1800px;
+      width: 500px;
+      margin: 100px auto;
+    }
+
+    .animated-text {
+      font-size: 30px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .animated-text.visible {
+     opacity: 1;
+      transform: translateX(0);
+      border-bottom: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <h1>Example 1</h1>
+    <p>Scroll to the bottom of the page. The text will transition in when it becomes visible in the viewport.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vestibulum purus non porta ullamcorper. Vivamus tempus, massa in posuere tincidunt, lorem purus porta est, viverra tristique ipsum eros vitae metus. Suspendisse sagittis neque eget finibus gravida. Etiam sem urna, pulvinar eu mattis ut, sodales non massa. Morbi viverra luctus convallis. Curabitur ac massa mauris. Curabitur ut scelerisque nunc. Nulla condimentum porttitor est ac varius. Sed vel dui sed enim rutrum faucibus vitae eu eros. Curabitur eros leo, euismod ac ante eu, viverra malesuada diam.</p>
+    <p>Nullam quis ipsum sagittis augue imperdiet fermentum. Morbi dapibus metus tempus, ullamcorper sem sit amet, dignissim felis. Curabitur arcu nulla, mattis hendrerit gravida at, sodales et lectus. Phasellus id porta quam. Sed in ex posuere, molestie mi eu, accumsan lectus. Cras erat massa, mollis vitae varius vel, hendrerit sit amet mi. Etiam nisl leo, sollicitudin non orci vel, lobortis consectetur metus. Sed cursus quam sapien, vehicula pharetra quam malesuada a. Curabitur in molestie arcu. Mauris nec leo venenatis, pulvinar lectus vel, convallis nibh. Aliquam a tellus eu metus hendrerit ultrices at blandit dolor. Praesent pharetra enim quis nunc bibendum, eu facilisis lacus auctor. Aliquam erat volutpat.</p>
+    <p>Nam rhoncus vel erat et efficitur. Proin iaculis molestie erat, at sagittis enim finibus non. Aliquam tempus elit sit amet leo porta, a porttitor erat consequat. Praesent faucibus odio vitae purus pharetra aliquet. Fusce sit amet interdum ante. Sed tempor, purus quis porttitor ornare, quam purus dapibus neque, dapibus vulputate lorem ex nec elit. Maecenas in auctor mi, id sodales massa. Sed orci tellus, vestibulum et euismod iaculis, egestas vitae nulla. Nam a ornare ex, in semper nisl. Aliquam venenatis tortor arcu. Integer suscipit porta arcu.</p>
+    <p>Aliquam eu nibh diam. Aliquam non cursus leo. Curabitur facilisis lacus ut nisi fringilla feugiat. Maecenas augue purus, pretium a magna non, auctor finibus justo. Fusce imperdiet libero ac quam elementum, vel vehicula nibh malesuada. Aliquam rhoncus quis nunc id aliquet. Duis ac finibus nisi. Donec fringilla tempor nibh ac tempor. Morbi a lectus vel tellus tincidunt posuere ut vel nisi. Proin aliquam ex libero, congue accumsan augue eleifend in. Nam sit amet dictum ipsum.</p>
+    <p>Nulla eu ipsum ultricies, gravida elit quis, egestas urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin blandit porta sem, eget lobortis sem pellentesque sit amet. Proin porttitor felis non tempus rhoncus. Cras lobortis accumsan nisi, at faucibus nibh laoreet quis. Vestibulum nisl urna, ullamcorper ut urna nec, venenatis consectetur massa. Aliquam erat volutpat. Maecenas facilisis diam eget consectetur elementum. Etiam magna mauris, vulputate quis gravida ut, tristique vel orci. Mauris condimentum nibh felis, ut feugiat dolor sodales vel. Pellentesque non iaculis sem, vel ullamcorper tellus. Nam dictum accumsan metus sed imperdiet. Phasellus malesuada nisl urna, quis consectetur nibh elementum ac. Nulla vitae dolor quis turpis pellentesque molestie a quis mauris. Integer enim leo, tincidunt vel leo sed, consequat finibus dolor. Phasellus elit libero, cursus non orci quis, suscipit rhoncus quam.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vestibulum purus non porta ullamcorper. Vivamus tempus, massa in posuere tincidunt, lorem purus porta est, viverra tristique ipsum eros vitae metus. Suspendisse sagittis neque eget finibus gravida. Etiam sem urna, pulvinar eu mattis ut, sodales non massa. Morbi viverra luctus convallis. Curabitur ac massa mauris. Curabitur ut scelerisque nunc. Nulla condimentum porttitor est ac varius. Sed vel dui sed enim rutrum faucibus vitae eu eros. Curabitur eros leo, euismod ac ante eu, viverra malesuada diam.</p>
+    <p>Nullam quis ipsum sagittis augue imperdiet fermentum. Morbi dapibus metus tempus, ullamcorper sem sit amet, dignissim felis. Curabitur arcu nulla, mattis hendrerit gravida at, sodales et lectus. Phasellus id porta quam. Sed in ex posuere, molestie mi eu, accumsan lectus. Cras erat massa, mollis vitae varius vel, hendrerit sit amet mi. Etiam nisl leo, sollicitudin non orci vel, lobortis consectetur metus. Sed cursus quam sapien, vehicula pharetra quam malesuada a. Curabitur in molestie arcu. Mauris nec leo venenatis, pulvinar lectus vel, convallis nibh. Aliquam a tellus eu metus hendrerit ultrices at blandit dolor. Praesent pharetra enim quis nunc bibendum, eu facilisis lacus auctor. Aliquam erat volutpat.</p>
+    <p>Nam rhoncus vel erat et efficitur. Proin iaculis molestie erat, at sagittis enim finibus non. Aliquam tempus elit sit amet leo porta, a porttitor erat consequat. Praesent faucibus odio vitae purus pharetra aliquet. Fusce sit amet interdum ante. Sed tempor, purus quis porttitor ornare, quam purus dapibus neque, dapibus vulputate lorem ex nec elit. Maecenas in auctor mi, id sodales massa. Sed orci tellus, vestibulum et euismod iaculis, egestas vitae nulla. Nam a ornare ex, in semper nisl. Aliquam venenatis tortor arcu. Integer suscipit porta arcu.</p>
+    <h2 class="animated-text">Animated Text</h2>
+  </section>
+  <script type="text/javascript" charset="utf-8">
+    // First we select the element we want to target
+    const target = document.querySelector('.animated-text');
+
+    // Next we want to create a function that will be called when that element is intersected
+    function handleIntersection(entries) {
+      // The callback will return an array of entries, even if you are only observing a single item
+     entries.map((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        } else {
+          entry.target.classList.remove('visible')
+        }
+      });
+    }
+
+    // Next we instantiate the observer with the function we created above. This takes an optional configuration
+    // object that we will use in the other examples.
+    const observer = new IntersectionObserver(handleIntersection);
+
+    // Finally start observing the target element
+    observer.observe(target);
+  </script>
+</body>
+
+</html>
