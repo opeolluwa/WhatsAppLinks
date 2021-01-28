@@ -171,67 +171,91 @@ let tree = {
     })();
   },
 
-
-
-
 };
 
-//MAIN CONTROL 
 
-// First we select target elements
+//MAIN CONTROL 
+//refrence the application layer
+let whatsapp = tree.variables.layers.whatsapp;
 let weblink = tree.variables.layers.weblink;
 let qrcode = tree.variables.layers.qrcode;
-let whatsapp = tree.variables.layers.whatsapp;
 
-//refrence their observers 
+
+//refrence the layer observers => these are hyperlink <a>...</a> that update active layer
 let whatsappObserver = tree.variables.layersObserver.whatsapp;
 let weblinkObserver = tree.variables.layersObserver.weblink;
 let qrcodeObserver = tree.variables.layersObserver.qrcode;
 
 
-//weblink.call back
-function callback(entries) {
-  // The callback will return an array of entries, even if you are only observing a single item
-  entries.map((entry) => {
-    if (entry.isIntersecting) {
-      weblinkObserver.style.borderBottom = '.1rem solid #fff';
-    }
-    else {
-      weblinkObserver.style.borderBottom = 'none';
-    }
-  });
-}
-
-//whatsapp callback
+//whatsapp layer control logic
 function whatsappCallback(entries) {
-  // The callback will return an array of entries, even if you are only observing a single item
   entries.map((entry) => {
+    //if whatsapp layer is visible
     if (entry.isIntersecting) {
+      //underline the the hyperlink then unobserve other layers 
       whatsappObserver.style.borderBottom = '.1rem solid #fff';
+     // observeQrcode.unobserve(qrcode);
+     // observeWeblink.unobserve(weblink);
+      //other conttol logic
+
+
     }
+    //feedback control || error handling
     else {
       whatsappObserver.style.borderBottom = 'none';
     }
   });
 }
 
-//qrcode observer 
-function qrcodeCallback(entries) {
-  // The callback will return an array of entries, even if you are only observing a single item
+//weblink layer control logic
+function weblinkCallback(entries) {
+  //observer control
   entries.map((entry) => {
     if (entry.isIntersecting) {
-      qrcodeObserver.style.borderBottom = '.1rem solid #fff';
+      //=>underline the the hyperlink
+      weblinkObserver.style.borderBottom = '.1rem solid #fff';
+      //underline the the hyperlink then unobserve other layers 
+      //observeQrcode.unobserve(qrcode);
+      //observeWhatsapp.unobserve(whatsapp);
+      //other conttol logic
+
+
     }
+    //feedback control || error handling
+    else {
+      weblinkObserver.style.borderBottom = 'none';
+    }
+  });
+}
+
+//qrcode layer control logic
+function qrcodeCallback(entries) {
+  //observer control
+  entries.map((entry) => {
+    //if qrcode layer is visible
+    if (entry.isIntersecting) {
+      //=>underline the the hyperlink
+      qrcodeObserver.style.borderBottom = '.1rem solid #fff';
+      //unobserve other layers
+      //observeWhatsapp.unobserve(whatsapp);
+      //observeWeblink.unobserve(weblink);
+    }
+
+    //feedback control || error handling
     else {
       qrcodeObserver.style.borderBottom = 'none';
     }
   });
 }
 
-// Next we instantiate the observer
+
+//here we instantiate the observer for each layer
 const observeWhatsapp = new IntersectionObserver(whatsappCallback);
+const observeWeblink = new IntersectionObserver(weblinkCallback);
+const observeQrcode = new IntersectionObserver(qrcodeCallback);
+
 
 // Finally start observing the target element
 observeWhatsapp.observe(whatsapp);
-//observer.observe(qrcode);
-//observer.observe(whatsapp);
+observeWeblink.observe(weblink);
+observeQrcode.observe(qrcode);
