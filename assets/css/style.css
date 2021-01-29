@@ -128,14 +128,14 @@ layer {
   display: inline-block;
 }
 
-#output-controls {
+.output-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
 
-#output-controls img:hover {
+.output-controls img:hover {
   background: rgba(244, 56, 120, .01);
   transform: scale(1.45);
   transition: all .2s cubic-bezier(0.23, 1, 0.320, 1);

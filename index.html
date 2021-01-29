@@ -7,11 +7,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta name="viewport" content="width=device-width" />
-  
   <!-- Halfmoon CSS -->
   <link href="assets/css/halfmoon.min.css" rel="stylesheet" />
-
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    layer[name*="whatsapp"] input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background: inherit;
+      border: .1px solid rgba(255, 255, 255, .5);
+      border-radius: 5px;
+      padding-left: 35px;
+      color: #fff;
+    }
+
+    layer[name*="whatsapp"] #getNumber {
+      background: url(assets/img/phone.svg) no-repeat 10px 10pX;
+
+    }
+
+    layer[name*="whatsapp"] #getText {
+      background: url(assets/img/mailer.svg) no-repeat 10px 10pX;
+    }
+
+    layer[name*="whatsapp"] .output-controls {
+display: none;
+}
+
+  </style>
 </head>
 
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-theme-onload="true">
@@ -30,13 +55,7 @@
       .gethalfmoon.com/docs/navbar -->
     </nav>
     <!-- Navbar end -->
-    <!-- Sidebar overlay -->
-    <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
-    <!-- Sidebar start -->
-    <div class="sidebar">
-      <!-- Reference: https://www.gethalfmoon.com/docs/sidebar -->
-    </div>
-    <!-- Sidebar end -->
+  
     <!-- Content wrapper start -->
     <main class="content-wrapper" id="divider">
       <!--
@@ -52,32 +71,35 @@
       <layer id="layer2" class="layer">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </layer>
-      <layer id="layer3">whatsapp <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
-          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
+      <layer id="layer3" name="whatsapp">
+        <h6>WhatsApp Link Generator</h6>
+        <!--whatsapp layer content-->
+        <input type="number" name="getNumber" id="getNumber" value="" placeholder="Phone number with country code" />
+        <input type="text" name="getText" id="getText" value="" placeholder="Message" maxlength="1080" />
+        <div class="output-controls" >
+          <span>outpit</span>
+        <img src="assets/img/copy.svg" alt="" />
+        </div>
+        <!--output-->
       </layer>
     </main>
+    
     <!-- Content wrapper end -->
     <!-- Navbar fixed bottom start -->
-    
-    <!--  <div id="output-controls">
-        <img src="assets/img/redo-alt.svg" alt="" />
-        <img src="assets/img/list.svg" alt="" />
-        <img src="assets/img/copy.svg" alt="" />
-        <img src="assets/img/arrow-right.svg" alt="" />
-      </div>-->
-      <nav class="navbar navbar-fixed-bottom" id="output-controls">
-     <!-- <div id="hy">-->
-        <img src="assets/img/redo-alt.svg" alt="" />
-        <img src="assets/img/list.svg" alt="" />
-        <img src="assets/img/copy.svg" alt="" />
-        <img src="assets/img/arrow-right.svg" alt="" />
+    <nav class="navbar navbar-fixed-bottom output-controls">
+      <!-- <div id="hy">-->
+      <img src="assets/img/redo-alt.svg" alt="" />
+      <img src="assets/img/list.svg" alt="" />
+      <img src="assets/img/copy.svg" alt="" />
+      <img src="assets/img/arrow-right.svg" alt="" />
     </nav>
-
     <!-- Navbar fixed bottom end -->
   </div>
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
   <script src="assets/js/halfmoon.min.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+  <script src="assets/js/sweetalert.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 
