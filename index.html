@@ -32,10 +32,7 @@
       background: url(assets/img/mailer.svg) no-repeat 10px 10pX;
     }
 
-    layer[name*="whatsapp"] .output-controls {
-display: none;
-}
-
+    
   </style>
 </head>
 
@@ -55,7 +52,6 @@ display: none;
       .gethalfmoon.com/docs/navbar -->
     </nav>
     <!-- Navbar end -->
-  
     <!-- Content wrapper start -->
     <main class="content-wrapper" id="divider">
       <!--
@@ -76,18 +72,17 @@ display: none;
         <!--whatsapp layer content-->
         <input type="number" name="getNumber" id="getNumber" value="" placeholder="Phone number with country code" />
         <input type="text" name="getText" id="getText" value="" placeholder="Message" maxlength="1080" />
-        <div class="output-controls" >
+        <div class="output-controls">
           <span>outpit</span>
-        <img src="assets/img/copy.svg" alt="" />
+                <img src="assets/img/arrow-right.svg" alt="" />
+
         </div>
         <!--output-->
       </layer>
     </main>
-    
     <!-- Content wrapper end -->
     <!-- Navbar fixed bottom start -->
-    <nav class="navbar navbar-fixed-bottom output-controls">
-      <!-- <div id="hy">-->
+    <nav class="navbar navbar-fixed-bottom output-controls" id="root-controls">
       <img src="assets/img/redo-alt.svg" alt="" />
       <img src="assets/img/list.svg" alt="" />
       <img src="assets/img/copy.svg" alt="" />
@@ -98,9 +93,10 @@ display: none;
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
   <script src="assets/js/halfmoon.min.js"></script>
-    <script src="assets/js/whatsapp.js"></script>
-  <script src="assets/js/sweetalert.min.js"></script>
+  <script src="assets/js/app.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/sweetalert.min.js"></script>
+  <script src="assets/js/whatsapp.js"></script>
 </body>
 
 </html>

@@ -174,7 +174,8 @@ let tree = {
 };
 
 
-//MAIN CONTROL 
+//MAIN CONTROL
+/*
 //refrence the application layer
 let whatsapp = tree.variables.layers.whatsapp;
 let weblink = tree.variables.layers.weblink;
@@ -258,4 +259,4 @@ const observeQrcode = new IntersectionObserver(qrcodeCallback);
 // Finally start observing the target element
 observeWhatsapp.observe(whatsapp);
 observeWeblink.observe(weblink);
-observeQrcode.observe(qrcode);
+observeQrcode.observe(qrcode);*/
