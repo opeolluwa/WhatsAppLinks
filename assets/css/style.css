@@ -2,10 +2,10 @@
   box-sizing: border-box;
 }
 
-  @font-face {
-    font-family: android;
-    src: url(android.ttf)
-  }
+@font-face {
+  font-family: android;
+  src: url(android.ttf)
+}
 
 
 /**
@@ -60,15 +60,7 @@ layer layout
 **/
 
 body {
-  font-family: 'Sen', sans-serif;
-}
-
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: 'Bellota Text', cursive;
+  font-family: 'San', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 layer {
@@ -91,7 +83,7 @@ h3 {
 }
 
 
-.nav-top, nav {
+.nav-top {
   display: flex;
 }
 
@@ -104,11 +96,20 @@ h3 {
   color: #fff;
   transition: background 0.5s ease;
   padding: 1em;
+  cursor: pointer;
+
 }
 
 .nav-top>a.focus {
   color: #fff;
-border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.nav-top>a:hover {
+  text-decoration: none;
+  transform: scale(1.01);
+  transition: all .2s cubic-bezier(0.23, 1, 0.320, 1);
+  color: #fff;
 }
 
 li>a {
@@ -121,4 +122,23 @@ layer {
   --padding-size: 1em;
   padding: var(--padding-size);
   text-align: center;
+}
+
+#output-controls img {
+  display: inline-block;
+}
+
+#output-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+#output-controls img:hover {
+  background: rgba(244, 56, 120, .01);
+  transform: scale(1.45);
+  transition: all .2s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+
 }
