@@ -19,12 +19,12 @@ const $$ = (...s) => {
 /* Update the window URL on swipe, this is throttled so that the history doesn't get filled with useless entries*/
 function updateHistory(hash) {
   clearTimeout(updateHistory.timeout);
-  updateHistory.timeout = setTimeout(function () {
+  updateHistory.timeout = setTimeout(function() {
     if (window.location.hash !== hash) {
       if (location.hash !== '') {
         history.pushState({}, window.title, hash);
       } else {
-        
+
         // On first page load update the URL in place
         history.replaceState({}, window.title, hash);
       }
@@ -33,22 +33,22 @@ function updateHistory(hash) {
 }
 
 const iO = new IntersectionObserver(entries => entries.forEach(entry => {
-    const hash = '#'+entry.target.id;
-    const navEl = $`[href="${hash}"]`;
-    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-        navEl.classList.add('focus');
-        updateHistory(hash);
-    } else {
-        navEl.classList.remove('focus');
-    }
+  const hash = '#' + entry.target.id;
+  const navEl = $ `[href="${hash}"]`;
+  if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+    navEl.classList.add('focus');
+    updateHistory(hash);
+  } else {
+    navEl.classList.remove('focus');
+  }
 }), {
-    root: $`content-layer`,
-    threshold: 0.5
+  root: $ `content-layer`,
+  threshold: 0.5
 });
 
-window.addEventListener('DOMContentLoaded', () => $$`layer`.map(a => iO.observe(a)));
-window.addEventListener('hashchange', function (e) {
-  const articleToShow =  $(window.location.hash || '#' + $`layer`.id);
+window.addEventListener('DOMContentLoaded', () => $$ `layer`.map(a => iO.observe(a)));
+window.addEventListener('hashchange', function(e) {
+  const articleToShow = $(window.location.hash || '#' + $ `layer`.id);
   articleToShow.scrollIntoView();
   e.preventDefault();
 }, false);
