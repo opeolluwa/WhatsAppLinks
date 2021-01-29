@@ -11,7 +11,17 @@
   <link href="assets/css/halfmoon.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    layer[name*="whatsapp"] input {
+    layer[name*="weblinks"] #getURL {
+      background: url(assets/img/link.svg) no-repeat 10px 10pX;
+    }
+
+    layer[name*="whatsapp"] {
+      padding-top: 25vh;
+    }
+
+    layer[name*="whatsapp"] input,
+    layer[name*="weblinks"] input {
+      outline-radius: 5px;
       width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
@@ -31,8 +41,6 @@
     layer[name*="whatsapp"] #getText {
       background: url(assets/img/mailer.svg) no-repeat 10px 10pX;
     }
-
-    
   </style>
 </head>
 
@@ -54,17 +62,16 @@
     <!-- Navbar end -->
     <!-- Content wrapper start -->
     <main class="content-wrapper" id="divider">
-      <!--
-          Add your page's main content here
-          Examples:
-          1. https://www.gethalfmoon.com/docs/content-and-cards/#building-a-page
-          2. https://www.gethalfmoon.com/docs/grid-system/#building-a-dashboard
-        -->
-      <layer id="layer1">web
-        <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
-          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
+      <layer id="layer1" name="weblinks" style="padding-top:25vh">
+        <h6>URL Minifier</h6>
+        <!--whatsapp layer content-->
+        <input type="text" id="getURL" value="" placeholder="Paste URL" />
+        <div class="output-controls">
+          <span></span>
+          <img src="assets/img/arrow-right.svg" alt="" />
+        </div>
       </layer>
-      <layer id="layer2" class="layer">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
+      <layer id="layer2">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
           Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
       </layer>
       <layer id="layer3" name="whatsapp">
@@ -73,9 +80,8 @@
         <input type="number" name="getNumber" id="getNumber" value="" placeholder="Phone number with country code" />
         <input type="text" name="getText" id="getText" value="" placeholder="Message" maxlength="1080" />
         <div class="output-controls">
-          <span>outpit</span>
-                <img src="assets/img/arrow-right.svg" alt="" />
-
+          <span></span>
+          <img src="assets/img/arrow-right.svg" alt="" />
         </div>
         <!--output-->
       </layer>
@@ -92,11 +98,13 @@
   </div>
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
+  <script src="assets/js/jquery-3.5.1.js"></script>
   <script src="assets/js/halfmoon.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/sweetalert.min.js"></script>
   <script src="assets/js/whatsapp.js"></script>
+  <script src="src/bitlr.js"></script>
 </body>
 
 </html>

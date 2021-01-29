@@ -1,24 +1,3 @@
-//update charLength
-document.getElementById('getText').addEventListener('keyup', () => {
-  //def length
-  let length = 100 - document.getElementById('getText').value.length;
-  let charLength =
-    document.getElementById('charLength');
-  charLength.innerHTML = `${length} characters more`;
-
-  (length <= 500) ?
-  Object.assign(charLength.style, { color: '#ee0000' }):
-
-    (length <= 750) ?
-    Object.assign(charLength.style, { color: '#e69500' }) :
-
-    (length <= 990) ?
-    Object.assign(charLength.style, { color: '#ffc14d' }) :
-    Object.assign(charLength.style, { color: '#f5f5f5' });
-});
-
-
-
 //ref variables 
 let link = tree.getVariable('layer[name*="whatsapp"] .output-controls span');
 //define variables
@@ -74,44 +53,20 @@ trigger.addEventListener('click', function() {
     });
   }
 
-
   else {
     //delete plus sign before number
     number = number[0] == '+' ? number.slice(1) : number;
     //append selection to variable link
     link.innerHTML = encodeURI('https:\/\/wa.me/' + number + '\?text=' + message);
-
-
-    const selection = window.getSelection();
-    //save current selection
-    const currentRange = selection.rangeCount === 0 ? null : selection.getRangeAt(0);
-
-    //select the link content
-    const range = document.createRange();
-    range.selectNodeContents(link);
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    //copy to clipboard
-    try {
-      document.execCommand('copy');
-      swal({
-        title: 'Link copied to clipboard',
-        icon: 'success'
-      });
-    }
-    //unable to copy 
-    catch (err) {
-      swal({
-        title: 'Oops!😣',
-        icon: 'error',
-        text: 'Unable to copy'
-      });
-
-    }
-    //restore all previous all selection
-    selection.removeAllRanges();
-    currentRange && selection.addRange(currentRange);
+    // update output control from proceed to copy
+    tree.getVariable('layer[name*="whatsapp"] .output-controls span').innerHTML ? trigger.setAttribute('src', 'assets/img/copy.svg') : trigger.setAttribute('src', 'assets/img/arrow-right.svg');
   }
+  //test if the link has been made
+  if (/https:\/\/wa\.me\/\d?\w./.test(tree.getVariable('layer[name*="whatsapp"] .output-controls span').innerHTML)) {
+    //execute copy comman
+    trigger.onclick = tree.copyToClipBoard();
+    trigger.removeEventListener('click', tree.copyToClipBoard);
+  }
+ 
 
 });

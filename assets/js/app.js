@@ -95,45 +95,30 @@ let tree = {
   copyToClipBoard() {
     const selection = window.getSelection();
     //save current selection
-    let currentRange = selection.rangeCount === 0 ? null : selection.getRangeAt(0);
+    const currentRange = selection.rangeCount === 0 ? null : selection.getRangeAt(0);
 
     //select the link content
-    let range = document.createRange();
+    const range = document.createRange();
     range.selectNodeContents(link);
     selection.removeAllRanges();
     selection.addRange(range);
+
     //copy to clipboard
     try {
-      //check link is ready
       document.execCommand('copy');
-      trigger.innerHTML = !document.querySelector('#output').innerHTML ? 'Generate & Copy link' : 'Copied to clipboard';
-      //copy link if ready
-      if (document.getElementById('output').innerHTML) {
-        swal({
-            title: 'Link copied to clipboard',
-            icon: 'success',
-            buttons: ['exit', 'ok'],
-            dangerMode: true
-          })
-          .then((resetFeed) => {
-            if (resetFeed) {
-              document.getElementById('getText').value = '';
-              document.getElementById('getNumber').value = '';
-              link.innerHTML = '';
-              document.querySelectorAll('.container .output-controls button')[1].innerHTML = 'Copy link';
-            }
-          });
-      }
-      //tell user link is till being made
-      else {
-        swal({
-          text: 'please wait...'
-        })
-      }
+      swal({
+        title: 'Link copied to clipboard',
+        icon: 'success'
+      });
     }
     //unable to copy 
     catch (err) {
-      trigger.innerHTML = 'copy';
+      swal({
+        title: 'Oops!😣',
+        icon: 'error',
+        text: 'Unable to copy'
+      });
+
     }
     //restore all previous all selection
     selection.removeAllRanges();
@@ -146,10 +131,13 @@ let tree = {
   //BIT.LY URL SHORTNER MODULE
   minifyLink() {
     $.bitlr({
+      //get the link in the inpt box
+      let weblink = tree.getVariable('layer[name*="weblink"] #getURL').innerHTMl;
+
       apiKey: '5bdbe751c876cd0754a18e31713533e527adf5b2',
-      link: encodeURI(`https:\/\/wa.me/${number}\?text=${message}`),
+      link: weblink,
       success: function(newLink) {
-        $('#output').html(newLink);
+        $('').html(newLink);
       },
       error: function() {
         $('.urls').hide();
