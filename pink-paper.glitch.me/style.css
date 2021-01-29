@@ -28,7 +28,6 @@ body {
   grid-template-rows: min-content min-content 1fr;
   background-attachment: fixed;
   background-size: 100vw 100vh;
-  background: var(--color0);
 }
 
 main {
@@ -65,10 +64,6 @@ body {
   font-family: 'Sen', sans-serif;
 }
 
-header {
-  padding: 0.2em 2em;
-  background: var(--color1);
-}
 
 h1, h2, h3, h4 {     
   font-family: 'Bellota Text', cursive;
@@ -92,9 +87,6 @@ h3 {
   font-size: 2em;
 }
 
-main {
-  background: var(--color1);
-}
 
 nav {
   display: flex;
@@ -106,15 +98,17 @@ nav > a {
   text-align: center;
 /*   border: 1px solid darksalmon; */
   border-width: 1px 1px 0 0;
-  background: var(--color2);
+    background: #000;
+color: #fff;
   transition: background 0.5s ease;
   padding: 1em;
   color: black;
 }
 
 nav > a.focus {
-  background: var(--color3);
-  color: white;
+  background: red;
+  color: #fff;
+
 }
 
 li > a {
@@ -128,27 +122,4 @@ layer {
   padding: var(--padding-size);
 }
 
-img {
-  max-width: 100%;
-}
 
-img.hero {
-  margin: calc(var(--padding-size) * -1);
-  margin-bottom: var(--padding-size);
-  max-height: 60vh;
-  object-fit: cover;
-  width: calc(100% + var(--padding-size) * 2);
-  max-width: calc(100% + var(--padding-size) * 2);
-}
-
-aside {
-  float: left;
-  width: 20em;
-  max-width: 100%;
-  background-color: var(--color4);
-  margin: .5em 1em .5em 0;
-  padding: .5em;
-  color: white;
-  border: 1px solid rgba(0,0,0,0.5); 
-  box-shadow: 0 0 10em -4em rgba(0,0,0,0.4) inset;50% 50% black inset;
-}
