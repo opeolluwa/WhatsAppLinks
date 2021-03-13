@@ -11,7 +11,7 @@
   <link href="assets/css/halfmoon.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    layer[name*="weblinks"] #getURL {
+    layer[name*="weblink"] #getURL {
       background: url(assets/img/link.svg) no-repeat 10px 10pX;
     }
 
@@ -20,7 +20,7 @@
     }
 
     layer[name*="whatsapp"] input,
-    layer[name*="weblinks"] input {
+    layer[name*="weblink"] input {
       outline-radius: 5px;
       width: 100%;
       padding: 12px 20px;
@@ -30,7 +30,8 @@
       border: .1px solid rgba(255, 255, 255, .5);
       border-radius: 5px;
       padding-left: 35px;
-      color: #fff;
+      color: #000;
+      border: 1px solid #009688;
     }
 
     layer[name*="whatsapp"] #getNumber {
@@ -40,6 +41,11 @@
 
     layer[name*="whatsapp"] #getText {
       background: url(assets/img/mailer.svg) no-repeat 10px 10pX;
+    }
+    .content-wrapper{
+     background:  url(bg.jpg) top center no-repeat;
+      background-size: cover;
+      background-color: #fff;
     }
   </style>
 </head>
@@ -62,17 +68,37 @@
     <!-- Navbar end -->
     <!-- Content wrapper start -->
     <main class="content-wrapper" id="divider">
-      <layer id="layer1" name="weblinks" style="padding-top:25vh">
-        <h6>URL Minifier</h6>
+      <layer id="layer1" name="weblink" style="padding-top:25vh">
+      <h6>URL Minifier</h6>
         <!--whatsapp layer content-->
         <input type="text" id="getURL" value="" placeholder="Paste URL" />
-        <div class="output-controls">
-          <span></span>
+        <div class="output-controls short-url">
+          <span>Reset</span>
           <img src="assets/img/arrow-right.svg" alt="" />
         </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       </layer>
-      <layer id="layer2">qrcode <p>aware that your callback is executed on the main thread. It should operate as quickly as possible; if anything time-consuming needs to be done, use Window.requestIdleCallback().
-          Also, note that if you specified the root option, the target must be a descendant of the root element.The list of entries received by the callback includes one entry for each target which reporting a change in its intersection status. Check the value of the isIntersecting property to see if the entry represents an element that currently intersects wi</p>
+      <layer id="layer2">qrcode <p>aware QR Generator</p>
       </layer>
       <layer id="layer3" name="whatsapp">
         <h6>WhatsApp Link Generator</h6>
@@ -99,12 +125,41 @@
   <!-- Page wrapper end -->
   <!-- Halfmoon JS -->
   <script src="assets/js/jquery-3.5.1.js"></script>
+  <script src="src/bitlr.js"></script>
   <script src="assets/js/halfmoon.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/sweetalert.min.js"></script>
   <script src="assets/js/whatsapp.js"></script>
-  <script src="src/bitlr.js"></script>
+  <script src="assets/js/weblink.js"></script>
+  <script>
+    $.bitlr({
+      apiKey: '23c47f073826eb0cdc1c2abedbb006976e0e0549',
+      link: /*'http://www.jqueryscript.net'*/ 'https://wa.me/2348151507684?text=bbjabzj%20%20jwks%20ka%20ak%22os%20owvsiwos%20i#osb',
+      anchor: true,
+      success: function(newLink) {
+        $('.short-url span').html(newLink);
+      },
+      error: function() {
+        $('.urls').hide();
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 
 </html>

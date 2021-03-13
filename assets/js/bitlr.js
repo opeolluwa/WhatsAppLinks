@@ -9,8 +9,7 @@ Last Updated: May 27, 2014
 Licensed under the MIT license
 
 */
-
-;(function($) {
+(function($) {
 
     $.bitlr = function(options) {
 
